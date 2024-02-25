@@ -48,5 +48,5 @@ COPY ./data/example.pdf  /inputs/
 ENV HF_DATASETS_OFFLINE=1 
 ENV TRANSFORMERS_OFFLINE=1 
 
-ENTRYPOINT [ "poetry","run", "python", "convert_single.py" ]
-CMD ["/inputs/example.pdf", "/outputs/output.md", "--parallel_factor 1" ,"--max_pages 10"]
+# ENTRYPOINT [ "poetry","run", "python", "convert_single.py" ]
+# CMD ["/inputs/example.pdf", "/outputs/output.md", "--parallel_factor 1" ,"--max_pages 10"]
