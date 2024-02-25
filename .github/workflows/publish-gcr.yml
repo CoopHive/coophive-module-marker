@@ -77,4 +77,6 @@ jobs:
           # cache-from: type=registry,ref=user/app:latest
           # cache-to: type=inline
           cache-from: type=registry,ref=user/app:buildcache
-          cache-to: type=registry,ref=user/app:buildcache,mode=max
+          cache-to: type=registry,ref=user/app:buildcache,mode=ma
+          # cache-from: type=gha Don't use cuz of cache limits our image size is way bigger than 10GB
+          # cache-to: type=gha,mode=maxx
