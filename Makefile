@@ -6,5 +6,7 @@ gh:
 	git pull && make dc
 
 
-docker-build:
-	docker build -t marker --build-arg HUGGINGFACE_TOKEN=${HUGGINGFACE_TOKEN}
+docker:
+	docker buildx build -t marker --build-arg HUGGINGFACE_TOKEN=${HUGGINGFACE_TOKEN} .
+
+.PHONY: docker gh dc
