@@ -35,7 +35,8 @@ jobs:
       group: heavy-disk-usage
       cancel-in-progress: false
 
-    runs-on: ${{ github.event.inputs.runs-on || 'ubuntu-latest' }}
+    # runs-on: ${{ github.event.inputs.runs-on || 'ubuntu-latest' }}
+    runs-on: self-hosted
     permissions:
       contents: read
       packages: write
