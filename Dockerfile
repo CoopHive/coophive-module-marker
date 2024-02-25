@@ -29,24 +29,31 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
     rm /root/.cache/huggingface/token
 
 RUN poetry config virtualenvs.create false 
-# RUN poetry install --no-interaction --no-ansi
+RUN poetry install --no-interaction --no-ansi
+
+# # poetry install getting killed by OOM
+
+# RUN mkdir /swap && \
+#     dd if=/dev/zero of=/swap/swapfile1 bs=1M count=2048 && \
+#     mkswap /swap/swapfile1 && \
+#     chmod 600 /swap/swapfile1 
+
+# RUN /swap/swapfile1 swap swap defaults 0 0
+
+# RUN mkdir -p /inputs 
+# RUN mkdir -p /outputs
+# RUN cp -r ./data/example.pdf  /inputs/
 
 
-RUN mkdir -p /inputs 
-RUN mkdir -p /outputs
-COPY ./data/example.pdf  /inputs/
-
-
-#RUN poetry install 
-# run to install hf models
+# trick to install hf models
 # RUN poetry run python convert_single.py /app/data/example.pdf /outputs/UniversalBoincCredit01-01-2022.md --parallel_factor 2 --max_pages 10
 # TODO: Vardhan move it to builder 
-#RUN poetry run python ./marker/models.py
+RUN poetry run python ./marker/models.py
 # TODO: Vardhan check if this file will download all models or download based on condition, if yes then you need to write a separate function that will download all models necessary
 
 
 ENV HF_DATASETS_OFFLINE=1 
 ENV TRANSFORMERS_OFFLINE=1 
 
-# ENTRYPOINT [ "poetry","run", "python", "convert_single.py" ]
-# CMD ["/inputs/example.pdf", "/outputs/output.md", "--parallel_factor 1" ,"--max_pages 10"]
+ENTRYPOINT [ "poetry","run", "python", "convert_single.py" ]
+CMD ["/inputs/example.pdf", "/outputs/output.md", "--parallel_factor 1" ,"--max_pages 10"]
