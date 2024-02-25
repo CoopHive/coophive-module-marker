@@ -24,5 +24,9 @@ RUN poetry config virtualenvs.create false \
     && poetry install --no-interaction --no-ansi
 
 
+RUN mkdir -p /inputs
+COPY a.pdf /inputs/
+
+
 ENTRYPOINT [ "poetry","run", "python", "convert_single.py" ]
-CMD ["/app/a.pdf", "/app/data.md", "--parallel_factor 1" ,"--max_pages 10"]
+CMD ["/inputs/a.pdf", "/outputs/data.md", "--parallel_factor 1" ,"--max_pages 10"]
