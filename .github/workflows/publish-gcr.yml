@@ -20,9 +20,9 @@ on:
           - ubuntu-latest
         required: true
 
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}-${{github.event.inputs.runs-on }}
-  cancel-in-progress: false
+# concurrency:
+#   group: ${{ github.workflow }}-${{ github.ref }}-${{github.event.inputs.runs-on }}
+#   cancel-in-progress: false
 
 env:
   REGISTRY: ghcr.io
@@ -32,9 +32,9 @@ env:
 
 jobs:
   build-and-push-image:
-    concurrency:
-      group: heavy-disk-usage
-      cancel-in-progress: false
+    # concurrency:
+    #   group: heavy-disk-usage
+    #   cancel-in-progress: false
 
     # runs-on: ${{ github.event.inputs.runs-on || 'ubuntu-latest' }}
     runs-on: hiro
