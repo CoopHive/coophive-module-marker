@@ -13,8 +13,11 @@ on:
   workflow_dispatch:
     inputs:
       runs-on:
+        type: choice
         description: "Operating system to run the job on"
-        default: "ubuntu-latest"
+        options:
+          - avast
+          - ubuntu-latest
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
