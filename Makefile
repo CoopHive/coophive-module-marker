@@ -1,6 +1,4 @@
 include .env
-EXPORT
-
 
 dc:
 	sudo docker-compose up
