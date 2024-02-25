@@ -7,4 +7,4 @@ gh:
 
 
 docker-build:
-	docker build -t marker --build-arg HUGGINGFACE_TOKEN=$HUGGINGFACE_TOKEN
+	docker build -t marker --build-arg HUGGINGFACE_TOKEN=${HUGGINGFACE_TOKEN}
