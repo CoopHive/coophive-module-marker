@@ -2,12 +2,19 @@ name: Publish to GCR
 on:
   push:
     branches:
+      - main
 
     tags:
 
   pull_request:
+    branches:
+      - main
 
   workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 env:
   REGISTRY: ghcr.io
@@ -17,6 +24,10 @@ env:
 
 jobs:
   build-and-push-image:
+    concurrency:
+      group: heavy-disk-usage
+      cancel-in-progress: false
+
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -64,11 +75,22 @@ jobs:
           echo meta tags
           echo "${{ steps.meta.outputs.tags }}"
 
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
         with:
           context: .
           push: ${{ github.event_name != 'pull_request' }}
+          # push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels}}
+          build-args: HUGGINGFACE_TOKEN=${{secrets.HUGGINGFACE_TOKEN}}
           github-token: ${{github.token}}
+          # cache-from: type=registry,ref=user/app:latest
+          # cache-to: type=inline
+          cache-from: type=registry,ref=user/app:buildcache
+          cache-to: type=registry,ref=user/app:buildcache,mode=max
+          # cache-from: type=gha Don't use cuz of cache limits our image size is way bigger than 10GB
+          # cache-to: type=gha,mode=max

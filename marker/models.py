@@ -11,3 +11,7 @@ def load_all_models():
     texify = load_texify_model()
     model_lst = [texify, layout, order, edit]
     return model_lst
+
+
+if __name__ == "__main__":
+    load_all_models()
