@@ -28,8 +28,8 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
     huggingface-cli login --token $HUGGINGFACE_TOKEN && \
     rm /root/.cache/huggingface/token
 
-RUN poetry config virtualenvs.create false \
-    && poetry install --no-interaction --no-ansi
+RUN poetry config virtualenvs.create false 
+# RUN poetry install --no-interaction --no-ansi
 
 
 RUN mkdir -p /inputs 
