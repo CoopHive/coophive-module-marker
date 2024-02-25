@@ -1,0 +1,64 @@
+{
+    "machine": {
+        "gpu": 1,
+        "cpu": 1000,
+        "ram": 100
+    },
+    "job": {
+        "APIVersion": "V1beta1",
+        "Metadata": {
+            "CreatedAt": "0001-01-01T00:00:00Z",
+            "Requester": {}
+        },
+        "Spec": {
+            "Deal": {
+                "Concurrency": 1
+            },
+            "Docker": {
+                "Entrypoint": [
+                    "bash", "-c",
+                    "pip3 install marker-pdf",
+                    "&&",
+                    "marker x.pdf"
+                ],
+                "Image": "python:3.11-slim",
+                "EnvironmentVariables": [
+                    "OUTPUT_DIR=/outputs/"              
+                ]
+            },
+            "Engine": "Docker",
+            "Language": {
+                "JobContext": {}
+            },
+            "Network": {
+                "Type": "None"
+            },
+            "PublisherSpec": {
+                "Type": "Estuary"
+            },
+            "Resources": {
+                "GPU": "1"
+            },
+            "Timeout": 1800,
+            "Verifier": "Noop",
+            "Wasm": {
+                "EntryModule": {}
+            },
+            "outputs": [
+                {
+                    "Name": "outputs",
+                    "StorageSource": "IPFS",
+                    "path": "/outputs"
+                }
+            ],
+            "inputs": [
+          {
+            "CID": "Qma9thurGfuZjMJh7kQAmT1iDkgxWVYgpqBGLUWqML1Uki",
+            "Name": "x.pdf",
+            "StorageSource": "IPFS",
+            "path": "/app"
+          }
+        ]
+      }
+        }
+    }
