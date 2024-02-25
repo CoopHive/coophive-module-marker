@@ -72,18 +72,3 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels}}
           github-token: ${{github.token}}
-#      - name: Build and push MultiArch Docker image
-#        uses: docker/build-push-action@v5
-#        with:
-#          context: multiArch.Dockerfile
-#          push: ${{ github.event_name != 'pull_request' }}
-#          tags: ${{ steps.meta.outputs.tags }}
-#          labels: ${{ steps.meta.outputs.labels}}
-#          github-token: ${{github.token}}
-#          platforms: linux/arm64,linux/amd64,linux/arm/v7,darwin #TODO:https://docs.docker.com/build/ci/github-actions/multi-platform/
-#
-
-# cache-from: type=gha
-# FIXME: enable cache
-# cache-to: type=gha,mode=max
-# https://github.com/docker/metadata-action/tree/v4/
