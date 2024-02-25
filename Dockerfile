@@ -33,12 +33,12 @@ RUN poetry config virtualenvs.create false \
 
 
 RUN mkdir -p /inputs
-COPY a.pdf /inputs/
+COPY /app/data/example.pdf  /inputs/
 
 
 # run to install hf models
-RUN poetry run python convert_single.py /app/a.pdf /app/data.md --parallel_factor 2 --max_pages 10
+RUN poetry run python convert_single.py /app/data/example.pdf /outputs/UniversalBoincCredit01-01-2022.md --parallel_factor 2 --max_pages 10
 
 
 ENTRYPOINT [ "poetry","run", "python", "convert_single.py" ]
-CMD ["/inputs/a.pdf", "/outputs/data.md", "--parallel_factor 1" ,"--max_pages 10"]
+CMD ["/inputs/example.pdf", "/outputs/output.md", "--parallel_factor 1" ,"--max_pages 10"]
