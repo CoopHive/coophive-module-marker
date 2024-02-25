@@ -74,5 +74,7 @@ jobs:
           labels: ${{ steps.meta.outputs.labels}}
           build-args: HUGGINGFACE_TOKEN=${{secrets.HUGGINGFACE_TOKEN}}
           github-token: ${{github.token}}
-          cache-from: type=registry,ref=user/app:latest
-          cache-to: type=inline
+          # cache-from: type=registry,ref=user/app:latest
+          # cache-to: type=inline
+          cache-from: type=registry,ref=user/app:buildcache
+          cache-to: type=registry,ref=user/app:buildcache,mode=max
