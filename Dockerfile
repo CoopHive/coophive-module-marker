@@ -37,7 +37,7 @@ RUN poetry config virtualenvs.create false \
 
 
 RUN mkdir -p /inputs
-COPY /app/data/example.pdf  /inputs/
+COPY ./data/example.pdf  /inputs/
 
 
 # run to install hf models
