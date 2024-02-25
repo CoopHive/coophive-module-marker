@@ -12,10 +12,6 @@ FROM python:3.11
 
 ARG HUGGINGFACE_TOKEN
 
-ENV HF_DATASETS_OFFLINE=1 
-ENV TRANSFORMERS_OFFLINE=1 
-
-
 WORKDIR /app
 
 COPY --from=builder /usr/share/tesseract-ocr /usr/share/tesseract-ocr
@@ -40,11 +36,14 @@ RUN mkdir -p /inputs
 RUN mkdir -p /outputs
 COPY ./data/example.pdf  /inputs/
 
-
 # run to install hf models
 # RUN poetry run python convert_single.py /app/data/example.pdf /outputs/UniversalBoincCredit01-01-2022.md --parallel_factor 2 --max_pages 10
 RUN poetry run python marker/models.py
 # TODO: Vardhan check if this file will download all models or download based on condition, if yes then you need to write a separate function that will download all models necessary
+
+
+ENV HF_DATASETS_OFFLINE=1 
+ENV TRANSFORMERS_OFFLINE=1 
 
 ENTRYPOINT [ "poetry","run", "python", "convert_single.py" ]
 CMD ["/inputs/example.pdf", "/outputs/output.md", "--parallel_factor 1" ,"--max_pages 10"]
