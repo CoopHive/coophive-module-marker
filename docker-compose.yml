@@ -1,0 +1,14 @@
+version: "3.8"
+
+services:
+  marker:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        HUGGINGFACE_TOKEN: ${HUGGINGFACE_TOKEN}
+    volumes:
+      - ./data/example.pdf:/inputs/example.pdf
+      - ./outputs:/outputs
+    environment:
+      HUGGINGFACE_TOKEN: ${HUGGINGFACE_TOKEN}
