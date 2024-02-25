@@ -17,6 +17,7 @@ WORKDIR /app
 COPY --from=builder /usr/share/tesseract-ocr /usr/share/tesseract-ocr
 
 ENV TESSDATA_PREFIX=/usr/share/tesseract-ocr/5/tessdata
+ENV PIP_DEFAULT_TIMEOUT=10000
 
 RUN pip install poetry
 
