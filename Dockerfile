@@ -12,6 +12,10 @@ FROM python:3.11
 
 ARG HUGGINGFACE_TOKEN
 
+ENV HF_DATASETS_OFFLINE=1 
+ENV TRANSFORMERS_OFFLINE=1 
+
+
 WORKDIR /app
 
 COPY --from=builder /usr/share/tesseract-ocr /usr/share/tesseract-ocr
