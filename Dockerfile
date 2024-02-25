@@ -29,15 +29,13 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
     rm /root/.cache/huggingface/token
 
 RUN poetry config virtualenvs.create false 
-# RUN poetry install --no-interaction --no-ansi
-
+RUN poetry install --no-interaction --no-ansi
 
 RUN mkdir -p /inputs 
 RUN mkdir -p /outputs
 COPY ./data/example.pdf  /inputs/
 
 
-#RUN poetry install 
 # run to install hf models
 # RUN poetry run python convert_single.py /app/data/example.pdf /outputs/UniversalBoincCredit01-01-2022.md --parallel_factor 2 --max_pages 10
 # TODO: Vardhan move it to builder 
