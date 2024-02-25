@@ -36,7 +36,8 @@ RUN poetry config virtualenvs.create false \
     && poetry install --no-interaction --no-ansi
 
 
-RUN mkdir -p /inputs
+RUN mkdir -p /inputs 
+RUN mkdir -p /outputs
 COPY ./data/example.pdf  /inputs/
 
 
