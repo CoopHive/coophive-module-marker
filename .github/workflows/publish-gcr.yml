@@ -48,7 +48,7 @@ jobs:
       #          fetch-tags: true
 
       - uses: docker-practice/actions-setup-docker@master
-        if: ${{ runner.os == 'self-hosted' }}
+        # if: ${{ runner.os == 'self-hosted' }}
         timeout-minutes: 12
 
       - name: Log in to the Container registry
