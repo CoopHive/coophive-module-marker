@@ -36,7 +36,8 @@ jobs:
       cancel-in-progress: false
 
     # runs-on: ${{ github.event.inputs.runs-on || 'ubuntu-latest' }}
-    runs-on: self-hosted
+    # runs-on: self-hosted //avast doesn't support docker even if installed
+    runs-on: ubuntu-latest
     permissions:
       contents: read
       packages: write
@@ -47,9 +48,9 @@ jobs:
           fetch-depth: 1
       #          fetch-tags: true
 
-      - uses: docker-practice/actions-setup-docker@master
-        # if: ${{ runner.os == 'self-hosted' }}
-        timeout-minutes: 12
+      # - uses: docker-practice/actions-setup-docker@master
+      #   # if: ${{ runner.os == 'self-hosted' }}
+      #   timeout-minutes: 12
 
       - name: Log in to the Container registry
         uses: docker/login-action@v3
