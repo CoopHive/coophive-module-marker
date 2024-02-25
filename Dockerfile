@@ -38,6 +38,7 @@ COPY ./data/example.pdf  /inputs/
 
 # run to install hf models
 # RUN poetry run python convert_single.py /app/data/example.pdf /outputs/UniversalBoincCredit01-01-2022.md --parallel_factor 2 --max_pages 10
+# TODO: Vardhan move it to builder 
 RUN poetry run python marker/models.py
 # TODO: Vardhan check if this file will download all models or download based on condition, if yes then you need to write a separate function that will download all models necessary
 
