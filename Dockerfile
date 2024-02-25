@@ -36,6 +36,8 @@ RUN mkdir -p /inputs
 RUN mkdir -p /outputs
 COPY ./data/example.pdf  /inputs/
 
+
+RUN poetry install --root
 # run to install hf models
 # RUN poetry run python convert_single.py /app/data/example.pdf /outputs/UniversalBoincCredit01-01-2022.md --parallel_factor 2 --max_pages 10
 # TODO: Vardhan move it to builder 
