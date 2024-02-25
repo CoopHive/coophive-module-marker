@@ -36,8 +36,8 @@ jobs:
       group: heavy-disk-usage
       cancel-in-progress: false
 
-    runs-on: ${{ github.event.inputs.runs-on || 'ubuntu-latest' }}
-    # runs-on: self-hosted //avast doesn't support docker even if installed
+    # runs-on: ${{ github.event.inputs.runs-on || 'ubuntu-latest' }}
+    runs-on: self-hosted //avast doesn't support docker even if installed
     # runs-on: ubuntu-latest
     permissions:
       contents: read
