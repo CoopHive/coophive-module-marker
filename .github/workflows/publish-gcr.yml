@@ -11,6 +11,10 @@ on:
       - main
 
   workflow_dispatch:
+    inputs:
+      runs-on:
+        description: "Operating system to run the job on"
+        default: "ubuntu-latest"
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -28,7 +32,7 @@ jobs:
       group: heavy-disk-usage
       cancel-in-progress: false
 
-    runs-on: ubuntu-latest
+    runs-on: ${{ github.event.inputs.runs-on || 'ubuntu-latest' }}
     permissions:
       contents: read
       packages: write
