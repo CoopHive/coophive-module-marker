@@ -2,3 +2,6 @@ FROM laciferin/marker:latest
 
 
 LABEL MAINTAINER="laciferin@gmail.com"
+
+
+ENTRYPOINT [ "poetry","run", "python", "convert_single.py" ]
