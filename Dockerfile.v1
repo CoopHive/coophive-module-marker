@@ -3,5 +3,7 @@ FROM laciferin/marker:latest
 
 LABEL MAINTAINER="laciferin@gmail.com"
 
+RUN mkdir -p /inputs 
+RUN mkdir -p /outputs
 
 ENTRYPOINT [ "poetry","run", "python", "convert_single.py" ]
