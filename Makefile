@@ -15,6 +15,8 @@ docker-p:
 	docker buildx build --platform linux/amd64 -t marker:${tag} --build-arg HUGGINGFACE_TOKEN=${HUGGINGFACE_TOKEN} .
 
 
+dockerv1:
+		docker buildx build -f Dockerfile.v1 -t marker:${tag} --build-arg HUGGINGFACE_TOKEN=${HUGGINGFACE_TOKEN} .
 
 tag:
 	docker tag marker:${tag} laciferin/marker:${tag}
