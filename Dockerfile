@@ -41,9 +41,9 @@ RUN poetry install --no-interaction --no-ansi
 
 # RUN /swap/swapfile1 swap swap defaults 0 0
 
-# RUN mkdir -p /inputs 
-# RUN mkdir -p /outputs
-# RUN cp -r ./data/example.pdf  /inputs/
+RUN mkdir -p /inputs 
+RUN mkdir -p /outputs
+RUN cp ./data/example.pdf  /inputs/
 
 
 # trick to install hf models
