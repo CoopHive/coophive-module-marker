@@ -1,8 +1,8 @@
 {
   "machine": {
-    "gpu": 3,
-    "cpu": 5000,
-    "ram": 5000
+    "gpu": 1,
+    "cpu": 3000,
+    "ram": 3000
   },
   "job": {
     "APIVersion": "V1beta1",
@@ -39,7 +39,7 @@
       "Network": {
         "Type": "None"
       },
-      "Timeout": 3600,
+      "Timeout": 450,
       "Inputs": [
         {
           "StorageSource": "urlDownload",
