@@ -3,7 +3,7 @@
 ## QuickStart
 
 ```
-hive run marker:v1.2.0 -i ipfs="http://dweb.link/ipfs -i cid="QmUvN8GQ3ZLZLspaxpMVHGdpAAFbJ2SHRYxwQJUsyA1RiX";
+hive run marker:v1.2.0 -i ipfs="http://dweb.link/ipfs" -i cid="QmUvN8GQ3ZLZLspaxpMVHGdpAAFbJ2SHRYxwQJUsyA1RiX";
 ```
 
 ### About
