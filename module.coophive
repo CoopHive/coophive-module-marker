@@ -14,7 +14,7 @@
           "EnvironmentVariables": [],
           "Image": "laciferin/marker:v1.0.1",
           "Parameters": [
-            {{if .input}}{{.input}}{{else}} "/inputs/QmUvN8GQ3ZLZLspaxpMVHGdpAAFbJ2SHRYxwQJUsyA1RiX"{{end}},
+            {{if .cid}}"{{ subt "/inputs/%s" .cid }}" {{else}} "/inputs/QmUvN8GQ3ZLZLspaxpMVHGdpAAFbJ2SHRYxwQJUsyA1RiX"{{end}},
             "/outputs/output.md",
             "--parallel_factor",
             "1",
