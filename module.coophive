@@ -1,8 +1,8 @@
 {
   "machine": {
     "gpu": 1,
-    "cpu": 3000,
-    "ram": 3000
+    "cpu": 1000,
+    "ram": 100
   },
   "job": {
     "APIVersion": "V1beta1",
@@ -14,7 +14,7 @@
           "EnvironmentVariables": [],
           "Image": "laciferin/marker:v1.0.1",
           "Parameters": [
-            {{if .input}}{{.input}}{{else}} "/inputs/QmUvN8GQ3ZLZLspaxpMVHGdpAAFbJ2SHRYxwQJUsyA1RiX"{{end}},
+            {{if .cid}}"{{ subt "/inputs/%s" .cid }}" {{else}} "/inputs/QmUvN8GQ3ZLZLspaxpMVHGdpAAFbJ2SHRYxwQJUsyA1RiX"{{end}},
             "/outputs/output.md",
             "--parallel_factor",
             "1",
@@ -43,8 +43,8 @@
       "Inputs": [
         {
           "StorageSource": "urlDownload",
-          "Name": "doc input",
-          "URL": {{if .url}}{{.urll}}{{else}}"https://gateway.lighthouse.storage/ipfs/QmUvN8GQ3ZLZLspaxpMVHGdpAAFbJ2SHRYxwQJUsyA1RiX"{{end}},
+          "Name": "Document Download",
+          "URL": "{{ subt "%s/%s" (or .ipfs "https://gateway.lighthouse.storage/ipfs") (get .cid "QmUvN8GQ3ZLZLspaxpMVHGdpAAFbJ2SHRYxwQJUsyA1RiX") }}",
           "Path": "/inputs"
         }
       ],
