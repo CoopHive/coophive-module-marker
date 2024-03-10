@@ -44,7 +44,7 @@
         {
           "StorageSource": "urlDownload",
           "Name": "docToParse",
-          "URL": {{if .ipfs}}"{{ subt "%s/%s" .ipfs .cid}}"{{else}}"https://gateway.lighthouse.storage/ipfs/QmUvN8GQ3ZLZLspaxpMVHGdpAAFbJ2SHRYxwQJUsyA1RiX"{{end}},
+          "URL": {{if .ipfs}}"{{ subt "%s/%s" .ipfs .cid}}"{{else}}"subt "http://dweb.link/ipfs/%s" QmUvN8GQ3ZLZLspaxpMVHGdpAAFbJ2SHRYxwQJUsyA1RiX"{{end}},
           "Path": "/inputs"
         }
       ],
