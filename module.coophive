@@ -43,8 +43,8 @@
       "Inputs": [
         {
           "StorageSource": "urlDownload",
-          "Name": "doc input",
-          "URL": {{if .url}}{{.urll}}{{else}}"https://gateway.lighthouse.storage/ipfs/QmUvN8GQ3ZLZLspaxpMVHGdpAAFbJ2SHRYxwQJUsyA1RiX"{{end}},
+          "Name": "docToParse",
+          "URL": {{if .ipfs}}"{{ subt "%s/%s" .ipfs .cid}}"{{else}}"https://gateway.lighthouse.storage/ipfs/QmUvN8GQ3ZLZLspaxpMVHGdpAAFbJ2SHRYxwQJUsyA1RiX"{{end}},
           "Path": "/inputs"
         }
       ],
