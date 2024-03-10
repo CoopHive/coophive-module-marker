@@ -14,7 +14,7 @@
           "EnvironmentVariables": [],
           "Image": "laciferin/marker:v1.0.1",
           "Parameters": [
-            {{if .cid}}"{{ subt "/inputs/%s" .cid }}" {{else}} "/inputs/QmUvN8GQ3ZLZLspaxpMVHGdpAAFbJ2SHRYxwQJUsyA1RiX"{{end}},
+            {{if .cid}}"{{ subt "/inputs/%s" .cid }}" {{else}} "/inputs/bafybeiegv4bhxxkkdzidmp64bjdyj2klkf6rlyhvjdwhdn2ute2lecfg7y"{{end}},
             "/outputs/output.md",
             "--parallel_factor",
             "1",
@@ -44,7 +44,7 @@
         {
           "StorageSource": "urlDownload",
           "Name": "Document Download",
-          "URL": "{{ subt "%s/%s" (or .ipfs "https://gateway.lighthouse.storage/ipfs") (get .cid "QmUvN8GQ3ZLZLspaxpMVHGdpAAFbJ2SHRYxwQJUsyA1RiX") }}",
+          "URL": "{{ subt "%s/%s" (or .ipfs "https://dweb.link/ipfs") (get .cid "bafybeiegv4bhxxkkdzidmp64bjdyj2klkf6rlyhvjdwhdn2ute2lecfg7y") }}",
           "Path": "/inputs"
         }
       ],
