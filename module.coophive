@@ -44,7 +44,7 @@
         {
           "StorageSource": "urlDownload",
           "Name": "Document Download",
-          "URL": "{{ subt "%s/%s" (or .ipfs "http://dweb.link/ipfs") (get .cid "QmUvN8GQ3ZLZLspaxpMVHGdpAAFbJ2SHRYxwQJUsyA1RiX") }}",
+          "URL": "{{ subt "%s/%s" (or .ipfs "https://dweb.link/ipfs") (get .cid "QmUvN8GQ3ZLZLspaxpMVHGdpAAFbJ2SHRYxwQJUsyA1RiX") }}",
           "Path": "/inputs"
         }
       ],
