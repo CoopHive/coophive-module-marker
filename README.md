@@ -3,7 +3,8 @@
 ## QuickStart
 
 ```
-hive run marker:v1.0.1-hive;
+hive run marker:v1.1.2 -i input=/inputs/QmUvN8GQ3ZLZLspaxpMVHGdpAAFbJ2SHRYxwQJUsyA1RiX -i url=https://gateway.lighthouse.storage/ipfs/QmUvN8GQ3ZLZLspaxpMVHGdpAAFbJ2SHRYxwQJUsyA1RiX
+
 ```
 
 ### About
