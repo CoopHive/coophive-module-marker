@@ -44,7 +44,7 @@
         {
           "StorageSource": "urlDownload",
           "Name": "doc input",
-          "URL": {{if .url}}{{.urll}}{{else}}"https://gateway.lighthouse.storage/ipfs/QmUvN8GQ3ZLZLspaxpMVHGdpAAFbJ2SHRYxwQJUsyA1RiX"{{end}},
+          "URL": {{if .url}}{{.url}}{{else}}"https://gateway.lighthouse.storage/ipfs/QmUvN8GQ3ZLZLspaxpMVHGdpAAFbJ2SHRYxwQJUsyA1RiX"{{end}},
           "Path": "/inputs"
         }
       ],
