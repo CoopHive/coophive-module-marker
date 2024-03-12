@@ -3,7 +3,7 @@
 ## QuickStart
 
 ```
-hive run marker:v1.1.2 -i input=/inputs/QmUvN8GQ3ZLZLspaxpMVHGdpAAFbJ2SHRYxwQJUsyA1RiX -i url=https://gateway.lighthouse.storage/ipfs/QmUvN8GQ3ZLZLspaxpMVHGdpAAFbJ2SHRYxwQJUsyA1RiX
+hive run marker:v1.1.2-patch-halcyon -i input=/inputs/QmUvN8GQ3ZLZLspaxpMVHGdpAAFbJ2SHRYxwQJUsyA1RiX -i url=https://gateway.lighthouse.storage/ipfs/QmUvN8GQ3ZLZLspaxpMVHGdpAAFbJ2SHRYxwQJUsyA1RiX
 
 ```
 
